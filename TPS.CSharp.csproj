@@ -80,6 +80,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\AICharacterControl.cs" />
     <Compile Include="Assets\Scripts\CameraMove.cs" />
+    <Compile Include="Assets\Scripts\PlayerInfo.cs" />
     <Compile Include="Assets\Scripts\ThirdPersonCharacter.cs" />
     <Compile Include="Assets\Scripts\ThirdPersonUserControl.cs" />
   </ItemGroup>
