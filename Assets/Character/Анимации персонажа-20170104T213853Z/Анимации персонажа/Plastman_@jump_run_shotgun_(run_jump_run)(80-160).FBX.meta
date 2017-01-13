@@ -1,0 +1,353 @@
+fileFormatVersion: 2
+guid: 12f517986713e214a9de296024afec2c
+timeCreated: 1483562933
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Animation LayerTransform
+    100002: back
+    100004: back 1
+    100006: back 2
+    100008: back-right
+    100010: back-right 1
+    100012: back-right 2
+    100014: back-right.Target
+    100016: back-right.Target 1
+    100018: back-right.Target 2
+    100020: back-right001
+    100022: back-right001.Target
+    100024: back-right002
+    100026: back-right002.Target
+    100028: back-right003
+    100030: back-right003.Target
+    100032: back-right004
+    100034: back-right004.Target
+    100036: back-right005
+    100038: back-right005.Target
+    100040: back-right006
+    100042: back-right006.Target
+    100044: back.Target
+    100046: back.Target 1
+    100048: back.Target 2
+    100050: back001
+    100052: back001.Target
+    100054: back002
+    100056: back002.Target
+    100058: back003
+    100060: back003.Target
+    100062: back004
+    100064: back004.Target
+    100066: back005
+    100068: back005.Target
+    100070: back006
+    100072: back006.Target
+    100074: Body_mesh
+    100076: Box007
+    100078: Box008
+    100080: Box009
+    100082: CATRigHub001
+    100084: CATRigHub001Bone001
+    100086: CATRigHub002
+    100088: CATRigHub003
+    100090: CATRigHub003Bone001
+    100092: CATRigHub003Bone002
+    100094: CATRigHub003Bone003
+    100096: CATRigLArm1
+    100098: CATRigLArm21
+    100100: CATRigLArm22
+    100102: CATRigLArmCollarbone
+    100104: CATRigLArmPalm
+    100106: CATRigLLeg1
+    100108: CATRigLLeg2
+    100110: CATRigLLegAnkle
+    100112: CATRigLLegPlatform
+    100114: CATRigRArm1
+    100116: CATRigRArm21
+    100118: CATRigRArm22
+    100120: CATRigRArmCollarbone
+    100122: CATRigRArmPalm
+    100124: CATRigRLeg1
+    100126: CATRigRLeg2
+    100128: CATRigRLegAnkle
+    100130: CATRigRLegPlatform
+    100132: CATRigSpine
+    100134: CATRigSpine1
+    100136: CATRigSpine2
+    100138: Character
+    100140: Character001
+    100142: Cylinder003
+    100144: Eyes_mesh
+    100146: front
+    100148: front 1
+    100150: front 2
+    100152: front.Target
+    100154: front.Target 1
+    100156: front.Target 2
+    100158: front001
+    100160: front001.Target
+    100162: front002
+    100164: front002.Target
+    100166: front003
+    100168: front003.Target
+    100170: front004
+    100172: front004.Target
+    100174: Group001
+    100176: Group002
+    100178: Group002 1
+    100180: left
+    100182: left 1
+    100184: left 2
+    100186: left.Target
+    100188: left.Target 1
+    100190: left.Target 2
+    100192: left001
+    100194: left001.Target
+    100196: left002
+    100198: left002.Target
+    100200: left003
+    100202: left003.Target
+    100204: left004
+    100206: left004.Target
+    100208: Line003
+    100210: Lower_eyelid_mesh
+    100212: //RootNode
+    100214: right
+    100216: right 1
+    100218: right 2
+    100220: right.Target
+    100222: right.Target 1
+    100224: right.Target 2
+    100226: right001
+    100228: right001.Target
+    100230: right002
+    100232: right002.Target
+    100234: right003
+    100236: right003.Target
+    100238: right004
+    100240: right004.Target
+    100242: Tube005
+    100244: Tube006
+    100246: Upper_eyelid_mesh
+    100248: weapon002
+    400000: Animation LayerTransform
+    400002: back
+    400004: back 1
+    400006: back 2
+    400008: back-right
+    400010: back-right 1
+    400012: back-right 2
+    400014: back-right.Target
+    400016: back-right.Target 1
+    400018: back-right.Target 2
+    400020: back-right001
+    400022: back-right001.Target
+    400024: back-right002
+    400026: back-right002.Target
+    400028: back-right003
+    400030: back-right003.Target
+    400032: back-right004
+    400034: back-right004.Target
+    400036: back-right005
+    400038: back-right005.Target
+    400040: back-right006
+    400042: back-right006.Target
+    400044: back.Target
+    400046: back.Target 1
+    400048: back.Target 2
+    400050: back001
+    400052: back001.Target
+    400054: back002
+    400056: back002.Target
+    400058: back003
+    400060: back003.Target
+    400062: back004
+    400064: back004.Target
+    400066: back005
+    400068: back005.Target
+    400070: back006
+    400072: back006.Target
+    400074: Body_mesh
+    400076: Box007
+    400078: Box008
+    400080: Box009
+    400082: CATRigHub001
+    400084: CATRigHub001Bone001
+    400086: CATRigHub002
+    400088: CATRigHub003
+    400090: CATRigHub003Bone001
+    400092: CATRigHub003Bone002
+    400094: CATRigHub003Bone003
+    400096: CATRigLArm1
+    400098: CATRigLArm21
+    400100: CATRigLArm22
+    400102: CATRigLArmCollarbone
+    400104: CATRigLArmPalm
+    400106: CATRigLLeg1
+    400108: CATRigLLeg2
+    400110: CATRigLLegAnkle
+    400112: CATRigLLegPlatform
+    400114: CATRigRArm1
+    400116: CATRigRArm21
+    400118: CATRigRArm22
+    400120: CATRigRArmCollarbone
+    400122: CATRigRArmPalm
+    400124: CATRigRLeg1
+    400126: CATRigRLeg2
+    400128: CATRigRLegAnkle
+    400130: CATRigRLegPlatform
+    400132: CATRigSpine
+    400134: CATRigSpine1
+    400136: CATRigSpine2
+    400138: Character
+    400140: Character001
+    400142: Cylinder003
+    400144: Eyes_mesh
+    400146: front
+    400148: front 1
+    400150: front 2
+    400152: front.Target
+    400154: front.Target 1
+    400156: front.Target 2
+    400158: front001
+    400160: front001.Target
+    400162: front002
+    400164: front002.Target
+    400166: front003
+    400168: front003.Target
+    400170: front004
+    400172: front004.Target
+    400174: Group001
+    400176: Group002
+    400178: Group002 1
+    400180: left
+    400182: left 1
+    400184: left 2
+    400186: left.Target
+    400188: left.Target 1
+    400190: left.Target 2
+    400192: left001
+    400194: left001.Target
+    400196: left002
+    400198: left002.Target
+    400200: left003
+    400202: left003.Target
+    400204: left004
+    400206: left004.Target
+    400208: Line003
+    400210: Lower_eyelid_mesh
+    400212: //RootNode
+    400214: right
+    400216: right 1
+    400218: right 2
+    400220: right.Target
+    400222: right.Target 1
+    400224: right.Target 2
+    400226: right001
+    400228: right001.Target
+    400230: right002
+    400232: right002.Target
+    400234: right003
+    400236: right003.Target
+    400238: right004
+    400240: right004.Target
+    400242: Tube005
+    400244: Tube006
+    400246: Upper_eyelid_mesh
+    400248: weapon002
+    2300000: Box007
+    2300002: Box008
+    2300004: Box009
+    2300006: Cylinder003
+    2300008: Eyes_mesh
+    2300010: Line003
+    2300012: Tube005
+    2300014: Tube006
+    3300000: Box007
+    3300002: Box008
+    3300004: Box009
+    3300006: Cylinder003
+    3300008: Eyes_mesh
+    3300010: Line003
+    3300012: Tube005
+    3300014: Tube006
+    4300000: Body_mesh
+    4300002: Upper_eyelid_mesh
+    4300004: Lower_eyelid_mesh
+    4300006: Eyes_mesh
+    4300008: Box007
+    4300010: Tube005
+    4300012: Box008
+    4300014: Box009
+    4300016: Line003
+    4300018: Tube006
+    4300020: Cylinder003
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: Body_mesh
+    13700002: Lower_eyelid_mesh
+    13700004: Upper_eyelid_mesh
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

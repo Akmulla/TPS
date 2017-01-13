@@ -13,7 +13,16 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         private Vector3 m_CamForward;             // The current forward direction of the camera
         private Vector3 m_Move;
         private bool m_Jump;                      // the world-relative desired move direction, calculated from the camForward and user input.
+        public enum PlayerState { Run,Prepare,Jump}
+        public PlayerState current_state;
 
+
+
+
+        public void GoJump()
+        {
+            current_state = PlayerState.Jump;
+        }
         public override void OnStartLocalPlayer()
         {
             Camera.main.GetComponent<CameraMove>().player = this.gameObject.transform;
@@ -21,6 +30,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
         private void Start()
         {
+            current_state = PlayerState.Run;
+
             // get the transform of the main camera
             if (Camera.main != null)
             {
@@ -40,6 +51,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
         private void Update()
         {
+            
             if (!m_Jump)
             {
                 m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
@@ -74,8 +86,38 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 	        if (Input.GetKey(KeyCode.LeftShift)) m_Move *= 0.5f;
 #endif
 
+            
             // pass all parameters to the character control script
-            m_Character.Move(m_Move, crouch, m_Jump);
+            switch (current_state)
+            {
+                case PlayerState.Run:
+                    {
+                        if (m_Jump)
+                        {
+                            current_state = PlayerState.Prepare;
+                            m_Character.Move(m_Move, crouch, false, true);
+                        }
+                        else
+                            m_Character.Move(m_Move, crouch, false,false);
+                    }
+                    break;
+                case PlayerState.Prepare:
+                    {
+                        m_Character.Move(m_Move, false, false,true);
+                        //состояние изменяется через animation event
+                    }
+                    break;
+                case PlayerState.Jump:
+                    {
+                        m_Character.Move(m_Move, false, true,false);
+                        current_state = PlayerState.Run;
+                    }
+                    break;
+            }
+            
+            
+            //print(m_Jump);
+            //m_Character.Move(m_Move, crouch, m_Jump);
             m_Jump = false;
         }
     }

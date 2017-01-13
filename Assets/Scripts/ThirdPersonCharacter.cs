@@ -14,7 +14,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		[SerializeField] float m_RunCycleLegOffset = 0.2f; //specific to the character in sample assets, will need to be modified to work with others
 		[SerializeField] float m_MoveSpeedMultiplier = 1f;
 		[SerializeField] float m_AnimSpeedMultiplier = 1f;
-		[SerializeField] float m_GroundCheckDistance = 0.1f;
+		[SerializeField] float m_GroundCheckDistance = 0.2f;
 
 		Rigidbody m_Rigidbody;
 		Animator m_Animator;
@@ -29,6 +29,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		CapsuleCollider m_Capsule;
 		bool m_Crouching;
 
+        bool m_Prepare;
+
 
 		void Start()
 		{
@@ -42,13 +44,15 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			m_OrigGroundCheckDistance = m_GroundCheckDistance;
 		}
 
-		public void Move(Vector3 move, bool crouch, bool jump)
+		public void Move(Vector3 move, bool crouch, bool jump,bool prepare)
 		{
 
-			// convert the world relative moveInput vector into a local-relative
-			// turn amount and forward amount required to head in the desired
-			// direction.
-			if (move.magnitude > 1f) move.Normalize();
+            // convert the world relative moveInput vector into a local-relative
+            // turn amount and forward amount required to head in the desired
+            // direction.
+            //print(jump);
+            m_Prepare = prepare;
+            if (move.magnitude > 1f) move.Normalize();
 			move = transform.InverseTransformDirection(move);
 			CheckGroundStatus();
 			move = Vector3.ProjectOnPlane(move, m_GroundNormal);
@@ -124,6 +128,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             m_Animator.SetFloat("Turn", m_TurnAmount, 0.1f, Time.deltaTime);
 			m_Animator.SetBool("Crouch", m_Crouching);
 			m_Animator.SetBool("OnGround", m_IsGrounded);
+            m_Animator.SetBool("Prepare", m_Prepare);
 			if (!m_IsGrounded)
 			{
 				m_Animator.SetFloat("Jump", m_Rigidbody.velocity.y);
@@ -171,11 +176,13 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             //if (jump && !crouch && m_Animator.GetCurrentAnimatorStateInfo(0).IsName("Grounded"))
             if (jump && !crouch)
             {
-				// jump!
-				m_Rigidbody.velocity = new Vector3(m_Rigidbody.velocity.x, m_JumpPower, m_Rigidbody.velocity.z);
-				m_IsGrounded = false;
+
+                // jump!
+                //m_Rigidbody.velocity = new Vector3(m_Rigidbody.velocity.x, m_JumpPower, m_Rigidbody.velocity.z);
+                m_Rigidbody.velocity = new Vector3(m_Rigidbody.velocity.x*2.5f, m_JumpPower, m_Rigidbody.velocity.z);
+                m_IsGrounded = false;
 				m_Animator.applyRootMotion = false;
-				m_GroundCheckDistance = 0.1f;
+				m_GroundCheckDistance = 0.4f;
 			}
 		}
 
@@ -223,6 +230,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 				m_GroundNormal = Vector3.up;
 				m_Animator.applyRootMotion = false;
 			}
-		}
+            //print(m_IsGrounded);
+        }
+
 	}
 }
