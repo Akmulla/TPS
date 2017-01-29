@@ -28,9 +28,10 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		Vector3 m_CapsuleCenter;
 		CapsuleCollider m_Capsule;
 		bool m_Crouching;
+       
 
         bool m_Prepare;
-
+        bool m_aim;
 
 		void Start()
 		{
@@ -44,13 +45,14 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			m_OrigGroundCheckDistance = m_GroundCheckDistance;
 		}
 
-		public void Move(Vector3 move, bool crouch, bool jump,bool prepare)
+		public void Move(Vector3 move, bool crouch, bool jump,bool prepare,bool aim)
 		{
 
             // convert the world relative moveInput vector into a local-relative
             // turn amount and forward amount required to head in the desired
             // direction.
             //print(jump);
+            m_aim = aim;
             m_Prepare = prepare;
             if (move.magnitude > 1f) move.Normalize();
 			move = transform.InverseTransformDirection(move);
@@ -58,8 +60,11 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			move = Vector3.ProjectOnPlane(move, m_GroundNormal);
 			m_TurnAmount = Mathf.Atan2(move.x, move.z);
 			m_ForwardAmount = move.z;
+            //if (aim)
+            //    m_TurnAmount = move.x;
 
-			ApplyExtraTurnRotation();
+            //if (!aim)
+            ApplyExtraTurnRotation();
 
 			// control and velocity handling is different when grounded and airborne:
 			if (m_IsGrounded)
@@ -121,11 +126,31 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		void UpdateAnimator(Vector3 move)
 		{
             // update the animator parameters
+            //if (m_aim)
+            //{
+            //    m_Animator.SetLayerWeight(1, 1.0f);
+            //    //m_Animator.SetLayerWeight(0, 0.0f);
+            //}
+                
+            //else
+            //{
+            //    m_Animator.SetLayerWeight(1, 0.0f);
+            //    //m_Animator.SetLayerWeight(0, 1.0f);
+            //}
+                
+
             if ((m_ForwardAmount >= 0.7f) && (m_ForwardAmount < 0.85f))
                 m_ForwardAmount = 0.85f;
-
-            m_Animator.SetFloat("Forward", m_ForwardAmount, 0.1f, Time.deltaTime);
-            m_Animator.SetFloat("Turn", m_TurnAmount, 0.1f, Time.deltaTime);
+            if (m_aim)
+            {
+                m_Animator.SetFloat("Forward", m_ForwardAmount, 0.1f, Time.deltaTime);
+                m_Animator.SetFloat("Turn", move.x, 0.1f, Time.deltaTime);
+            }
+            else
+            {
+                m_Animator.SetFloat("Forward", m_ForwardAmount, 0.1f, Time.deltaTime);
+                m_Animator.SetFloat("Turn", m_TurnAmount, 0.1f, Time.deltaTime);
+            }
 			m_Animator.SetBool("Crouch", m_Crouching);
 			m_Animator.SetBool("OnGround", m_IsGrounded);
             m_Animator.SetBool("Prepare", m_Prepare);

@@ -19,26 +19,6 @@ public class CameraMove : MonoBehaviour
     private Vector3 _position;
     float Distance = 10.0f;
 
-
-    void Start()
-    {
-        //StartCoroutine(FindPlayer());
-    }
-
-    IEnumerator FindPlayer()
-    {
-        player = null;
-        while (player == null)
-        {
-            player = PlayerInfo.player.gameObject.transform;
-            if (player == null)
-                yield return new WaitForSeconds(1.0f);   
-            else
-                yield return null;
-        }
-        
-    }
-
     void Update()
     {
         if (player != null)
